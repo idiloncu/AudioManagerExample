@@ -11,7 +11,7 @@ import com.example.audiomanagerexample.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var seekBar: SeekBar
-     lateinit var audioManager: AudioManager
+    lateinit var audioManager: AudioManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.decreaseButton.setOnClickListener {
             decreaseButton()
+        }
+        binding.seekBar.setOnClickListener{
+            seekBar.progress = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
         }
     }
 
